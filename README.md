@@ -1,2 +1,49 @@
 # mini-ia-analysis
-This is a mini analyzer AI, it analyzes numbers, sorts them, counts them, and has many other functions. 
+This is a mini analyzer AI, it analyzes numbers, sorts them, counts them, and has many other functions.
+
+
+# Ввод чисел через пробел и превращение в список чисел
+numbers = list(map(int, input("Введите числа через пробел: ").split()))
+
+# Счётчик положительных, отрицательных и нулей
+positive = 0
+negative = 0
+zeros = 0
+
+for x in numbers:
+    if x > 0:
+        positive += 1
+    elif x < 0:
+        negative += 1
+    else:
+        zeros += 1
+
+print("\nРезультат анализа массива:")
+print("Положительных:", positive)
+print("Отрицательных:", negative)
+print("Нулей:", zeros)
+
+# Добавление нового числа
+x = int(input("\nВведите число, которое хотите добавить в массив: "))
+numbers.append(x)
+print("Массив после добавления:", numbers)
+
+# Удаление числа
+x = int(input("\nВведите число, которое хотите удалить из массива: "))
+if x in numbers:
+    numbers.remove(x)
+    print("Массив после удаления:", numbers)
+else:
+    print("Такого числа нет в массиве.")
+
+# Сортировка массива
+numbers.sort()
+print("\nМассив после сортировки:", numbers)
+
+# Дополнительно: вывод чисел больше определённого значения
+threshold = int(input("\nВведите число, чтобы показать все элементы больше него: "))
+print("Числа больше", threshold, ":")
+for num in numbers:
+    if num > threshold:
+        print(num, end=' ')
+print()  
